@@ -40,8 +40,8 @@
 <a href="https://github.com/OverFlow37">
   <img src="https://github.com/OverFlow37.png" width="100">
 </a>
-<a href="https://github.com/songowen">
-  <img src="https://github.com/songowen.png" width="100">
+<a href="https://github.com/tytomko">
+  <img src="https://github.com/tytomko.png" width="100">
 </a>
 
 </p>
