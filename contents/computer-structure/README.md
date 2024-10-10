@@ -82,3 +82,115 @@ Python, Java, JavaScript 같은 언어들은 모두 IEEE 754 표준을 따르기
 - 실수를 다른 진수로 표현할 때, 정확하게 나누어 떨어지지 않아 무한이 반복되는 수들이 있습니다. 컴퓨터의 경우 데이터를 이진수로 저장하는데, '0.1'이나 '0.2'등은 2진수로 무한이 반복되기 때문에 저장할 수 있는 최대 자릿수에서 근사치를 저장합니다. 이 때문에 '0.1'이 컴퓨터에서는 '0.1'에 가까운 근사값이 나오게 되며 컴퓨터에서는 '0.1 + 0.2 = 0.3' 이 아닌 '0.1 + 0.2 = 0.3000000000000004' 가 나오게 됩니다.
 </p>
 </details>
+
+<details>
+<summary>CPU가 자발적으로 발생시키는 인터럽트와 CPU가 받아들이는 인터럽트의 차이가 무엇인지 설명해 보세요.</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>하드웨어적 스레드와 소프트웨어적 스레드의 차이에 대해 설명해 보세요.</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>병렬성과 동시성, 두 개념의 차이를 예시와 함께 설명해 보세요.</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>파이프라이닝이란 무엇이며, 어떻게 CPU성능을 향상시키는지 설명해 보세요.</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>동일한 소스 코드라 하더라도 애플M1 컴퓨터에서 컴파일 해 만든 실행파일을 인텔x86 컴퓨터로 옮겨 실행할 수 없는 이유를 설명해 보세요.</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>캐시 미스란 무엇이며, 캐시미스가 프로그램의 성능에 어떤 영향을 끼치는지 설명해 보세요.</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>다음 소스코드에 성능상의 문제가 있습니다. 어떤 문제인지 설명해 보세요.</summary>
+
+```JAVA
+public class Main {
+	public static void main(String[] args){
+		int[][] matix = new int[20000][20000];
+		
+		for (int i = 0; i < 20000; i++) {
+			for (int j = 0; j < 20000; j++){
+				matrix[j][i] = 1;
+			}
+		}
+	}
+}
+```
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>장치 드라이버 왜 설치해야 하나요?</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>PCIe이란 무엇이며 PCIe가 연결부품의 성능과 어떤 연관이 있는지 설명해 보세요.</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>GPU와 CPU를 비교하여 설명해 보세요.</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>파이프라인 위협에 대해 설명해주세요(오준)</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>슈퍼 스칼라가 무엇인지 설명해주세요(창현)</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>CSIC와 RISC의 특징과, 파이프라이닝에 어떤것이 더 유리한지 설명해주세요 (신우)</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
+
+<details>
+<summary>(태연)</summary>
+<p>
+- 여기에 설명을 적어주세요
+</p>
+</details>
