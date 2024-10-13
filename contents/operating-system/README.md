@@ -90,7 +90,8 @@
 
 <details>
 <summary>다음 코드에는 문제가 있습니다. 어떤 문제가 있는지 설명해보세요. (167p)
-```
+
+```C++
 #include <stdio.h>
 #include <pthread.h>
 
