@@ -84,9 +84,6 @@
 </p>
 </details>
 
-<hr>
-- **현재 진도**
-<hr>
 
 <details>
 <summary>다음 코드에는 문제가 있습니다. 어떤 문제가 있는지 설명해보세요. (167p)
@@ -129,37 +126,88 @@ int main(){
 ```
 </summary>
 <p>
-- 정답 : 여기에 정답을 적어주세요.
+- 정답 : 공유데이터인 'shared_data'가 두 스레드에서 동시에 수정되는 과정에서 발생할 수 있는 레이스 컨디션 문제가 있습니다. 'shared_data++'와 'shared_data--'라는 임계 구역에서의 연산이 하나씩만 수행되지 않기 때문에 데이터의 일관성이 보장되지 않을 수 있습니다.
 </p>
 </details>
+
 
 <details>
 <summary>위에서 제시한 코드의 문제를 해결해보세요. (170p)</summary>
 <p>
-- 정답 : 여기에 정답을 적어주세요.
+- 정답 : 문제를 해결하려면 mutex 등을 활용해 공유 자원에 대한 접근을 동기화해야 합니다. 다음과 같은 코드를 추가하면 임계구역을 보호할 수 있습니다.
 </p>
+```C++
+#include <stdio.h>
+#include <pthread.h>
+
+int shared_data = 0;  // 공유 데이터
+pthread_mutex_t mutex;  // 뮤텍스 변수 선언
+
+void* increment(void* arg) {
+    int i;
+    for (i = 0; i < 100000; i++) {
+        pthread_mutex_lock(&mutex);  // 뮤텍스 잠금
+        shared_data++;  // 공유 데이터 증가
+        pthread_mutex_unlock(&mutex);  // 뮤텍스 해제
+    }
+    return NULL;
+}
+
+void* decrement(void* arg) {
+    int i;
+    for (i = 0; i < 100000; i++) {
+        pthread_mutex_lock(&mutex);  // 뮤텍스 잠금
+        shared_data--;  // 공유 데이터 감소
+        pthread_mutex_unlock(&mutex);  // 뮤텍스 해제
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+
+    pthread_mutex_init(&mutex, NULL);  // 뮤텍스 초기화
+
+    pthread_create(&thread1, NULL, increment, NULL);
+    pthread_create(&thread2, NULL, decrement, NULL);
+
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+
+    printf("Final value of shared_data: %d\n", shared_data);
+
+    pthread_mutex_destroy(&mutex);  // 뮤텍스 제거
+    return 0;
+}
+```
 </details>
 
 <details>
 <summary>스레드 안전하지 않은 메서드를 동기화하지 않으면 어떤 문제가 생길 수 있나요? (186p)</summary>
 <p>
-- 정답 : 여기에 정답을 적어주세요.
+- 정답 : 여러 스레드가 동시에 실행될 경우 레이스 컨디션이 발생하여 데이터의 일관성이 깨질 수 있습니다. 따라서, 추가적인 동기화 도구를 사용하거나, 스레드 안전한 메서드를 사용해야 합니다.
 </p>
 </details>
 
 <details>
 <summary>교착상태가 무엇인지, 왜 발생하는지 설명해 보세요. (189p)</summary>
 <p>
-- 정답 : 여기에 정답을 적어주세요.
+- 정답 : 교착 상태는 2개 이상의 프로세스가 서로 상대방의 자원을 기다리며 무한정 대기하는 상황을 말합니다. 이는 네가지 조건이 충족될 때 발생할 수 있습니다. 첫째, 자원이 상호 배제되어 한번에 프로세스만 사용할 수 있는 경우, 둘째, 이미 자원을 점유한 프로세스가 다른 자원을 기다리는 경우, 셋째, 자원이 비선점되어 다른 프로세스가 강제로 자원을 빼앗지 못하는 경우, 넷째, 프록세스들이 원형으로 자원을 대기하는 경우입니다. 이러한 조건들이 동시에 충족될 때 교착상태가 발생할 수 있습니다.
 </p>
 </details>
 
 <details>
 <summary>리눅스 운영체제에서 일반적인 사용자 프로세스가 어떻게 CPU를 할당 받아 실행되는지 설명해 보세요. (202p)</summary>
 <p>
-- 정답 : 여기에 정답을 적어주세요.
+- 정답 : 리눅스에서 일반적인 사용자 프로세스는 CFS 스케줄러에 의해 스케줄링 됩니다. CFS 스케줄러는 각 프로세스에 CPU의 시간을 공평하게 배분하는 것을 목표로 합니다. 기본적으로 각 프로세스의 가상실행시간인 vruntime을 유지하며, vruntime이 가장 작은 프로세스부터 스케줄링합니다. 프로세스의 vruntime은 실제 실행시간에 프로세스의 우선순위에 따른 가중치를 고려하여 계산되며, 우선순위가 높을 수록 vruntime의 증가가 느려지기 때문에 우선순위가 높은 프로세스는 더 자주 cpu를 할당받게 됩니다.
 </p>
 </details>
+
+<hr>
+- **현재 진도**
+<hr>
+
+
 
 <details>
 <summary>디버깅할 때 주로 볼 수 있는 주소는 실제 물리 메모리 주소일까요? (206p)</summary>
