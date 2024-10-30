@@ -48,7 +48,7 @@
 <summary>다음 질문 5개는 다음 테이블을 토대로 답변하는 질문입니다.</summary>
 - 다음은 어떤 기업의 사업부서 및 직원에 대한 정보를 나타내는 테이블입니다.
     
-    ![image.png](./img/table.PNG)
+    ![image.png](img/table.PNG)
     
 - Employees 테이블
     - 직원의 ID(EmployeeId)
@@ -145,7 +145,7 @@ SELECT Employees.FirstName, Employees.LastName, Departments.Salary
 
 <details>
 <summary>(598p) 다음에 제시된 테이블이 가지고 있는 문제가 어떤 것인지 설명하고, 그 해결 방법을 제시해 보세요.</summary>
-![image.png](./img/598p.PNG)
+![image.png](img/598p.PNG)
 - 동일한 과목과 교수 정보가 여러 행에 걸쳐 중복 저장되어 있는 것으로 미루어 보아, 이 테이블은 정규화되어 있지 않습니다. 이 문제를 해결하기 위해서는 과목에 대한 정보와 학생에 대한 정보를 분리하여 정규화해야 합니다.
 - 제시된 테이블을 과목 테이블과 학생 테이블로 분리할 수 있는데요. 예를들어 과목 테이블에는 과목 코드와 과목 이름, 교수 이름을 저장하고, 학생 테이블에는 학생 ID와 과목 코드를 저장하면 됩니다.
 </details>
