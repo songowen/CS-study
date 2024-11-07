@@ -43,11 +43,13 @@
 
 <details>
 <summary>(541p) 참조 무결성 제약 조건에 대해 설명해 보세요.</summary>
+	
 - 참조 무결성 제약 조건이란 외래 키를 통해 테이블 간의 참조 관계에서 데이터의 일관성을 유지하기 위한 조건을 말합니다. 외래 키는 참조하는 테이블의 기본 키 와 같은 값을 갖거나 NULL 값을 가져야 합니다.
 </details>
 
 <details>
 <summary>다음 질문 5개는 다음 테이블을 토대로 답변하는 질문입니다.</summary>
+	
 - 다음은 어떤 기업의 사업부서 및 직원에 대한 정보를 나타내는 테이블입니다.
     
     ![image.png](img/table.PNG)
@@ -66,6 +68,7 @@
 
 <details>
 <summary>(559p) 모든 직원의 이름을 조회하는 SQL문을 작성해 보세요.</summary>
+	
 ```SQL
 SELECT FirstName, LastName
 	FROM Employess;
@@ -74,6 +77,7 @@ SELECT FirstName, LastName
 
 <details>
 <summary>(556p) 전 직원의 급여를 10% 인상하는 SQL문을 작성해 보세요.</summary>
+	
 ```SQL
 UPDATE Employess
 	SET Salary = Salary * 1.10;
@@ -82,6 +86,7 @@ UPDATE Employess
 
 <details>
 <summary>(550p) Employees 테이블의 DepartmentID가 Departments 테이블의 DepartmentID를 참조하는 외래 키를 추가해 보세요. 참조하는 테이블의 레코드가 삭제될 경우에는 참조한 테이블의 레코드가 함께 삭제되어야 하며, 참조하는 테이블의 레코드가 수정될 경우에는 참조한 테이블의 레코드를 NULL로 설정해야합니다.</summary>
+	
 ```SQL
 ALTER TABLE Employees
 	ADD FOREIGN KEY (DepartmentID)
@@ -94,6 +99,7 @@ ALTER TABLE Employees
 
 <details>
 <summary>(579p) Employees 테이블과 Departments 테이블을 INNER 조인하여 모든 직원의 이름과 부서 이름을 조회하는 SQL문을 작성해 보세요.</summary>
+	
 ```SQL
 SELECT Employees.FirstName, Employees.LastName, Departments.DepartmentName 
 	FROM Employees
@@ -104,6 +110,7 @@ SELECT Employees.FirstName, Employees.LastName, Departments.DepartmentName
 
 <details>
 <summary>(579p) Employees 테이블과 Departments 테이블을 INNER 조인하여 Finance 부서의 직원 이름과 급여를 조회하는 SQL문을 작성해 보세요.</summary>
+	
 ```SQL
 SELECT Employees.FirstName, Employees.LastName, Departments.Salary 
 	FROM Employees
@@ -114,6 +121,7 @@ SELECT Employees.FirstName, Employees.LastName, Departments.Salary
 
 <details>
 <summary>(577p) INNER 조인과 OUTER 조인의 차이점을 설명해 보세요.</summary>
+	
 - INNER 조인은 조인 조건을 만족하는 행들만 결과에 포함되며, 공통된 데이터가 있는 경우에만 데이터를 추출합니다.
 - OUTER 조인은 공통된 값이 없는 행도 포함하여 반환합니다. 가령 OUTER 조인의 일종인 LEFT OUTER 조인은 왼쪽 테이블의 모든 행과 오른쪽 테이블의 일치하는 값을 반환하고, 일치하지 않는 경우 NULL을 반환합니다.
 - 또 다른 OUTER 조인인 RIGHT OUTER 조인은 오른쪽 테이블의 모든 행과 왼쪽 테이블의 일치하는 값을 반환하고, 일치하지 않는 경우 NULL을 반환합니다.
@@ -122,17 +130,20 @@ SELECT Employees.FirstName, Employees.LastName, Departments.Salary
 
 <details>
 <summary>(584p) SQL에서 뷰를 사용하는 목적을 설명해 보세요.</summary>
+	
 - 뷰는 SQL 쿼리의 단순화 및 재사용성을 위해 사용합니다. 복잡한 쿼리를 자주 실행해야 하는 경우, 뷰를 생성하여 동일한 결과를 간단하게 얻을 수 있습니다. 뷰는 여러 테이블을 조인하거나 복잡한 조건을 포함한 쿼리를 하나의 뷰로 만들어 반복적인 쿼리 작성을 줄이고자 할 때, 또 특정 사용자에게 테이블의 특정 데이터만을 보여주고자 할 때도 사용할 수 있습니다.
 </details>
 
 <details>
 <summary>(587p) 인덱스란 무엇이며, 인덱스를 통해 어떻게 성능을 향상시킬 수 있는지 설명해보세요.</summary>
+	
 - 인덱스는 특정 테이블 열에 대한 자료구조로, 검색 속드를 향상시키기 위해 사용합니다. 책의 찾아보기와 유사한 개념으로, 인덱스를 통해 원하는 데이터를 빠르게 조회할 수 있습니다.
 - 인덱스를 생성하면 해당 테이블의 열 값들이 정렬된 형태로 저장되므로 테이블 전체를 탐색하지 않고도 빠르게 데이터를 찾을 수 있어 검색 성능이 향상됩니다.
 </details>
 
 <details>
 <summary>(589p) 인덱스에는 B 트리, 혹은 B 트리의 변형인 자료구조가 사용됩니다. 그 이유를 설명해 보세요.</summary>
+	
 - B 트리 혹은 B+ 트리와 같은 B트리의 변형은 대용량 데이터에 대한 빠른 탐색에 특화된 자료구조이기 때문입니다. B트리는 균형잡힌 트리 구조로써 데이터가 정렬된 상태로 저장되고, 각각의 노드가 여러 개의 자식을 가질 수 있어 탐색을 위한 연산 횟수가 일반적인 트리에 비해 적습니다. 이렇게 원하는 레코드를 빠르게 탐색할 수 있기 때문에 인덱스에서 주로 사용됩니다.
 </details>
 
@@ -147,6 +158,7 @@ SELECT Employees.FirstName, Employees.LastName, Departments.Salary
 
 <details>
 <summary>(598p) 다음에 제시된 테이블이 가지고 있는 문제가 어떤 것인지 설명하고, 그 해결 방법을 제시해 보세요.</summary>
+	
 ![image.png](img/598p.PNG)
 - 동일한 과목과 교수 정보가 여러 행에 걸쳐 중복 저장되어 있는 것으로 미루어 보아, 이 테이블은 정규화되어 있지 않습니다. 이 문제를 해결하기 위해서는 과목에 대한 정보와 학생에 대한 정보를 분리하여 정규화해야 합니다.
 - 제시된 테이블을 과목 테이블과 학생 테이블로 분리할 수 있는데요. 예를들어 과목 테이블에는 과목 코드와 과목 이름, 교수 이름을 저장하고, 학생 테이블에는 학생 ID와 과목 코드를 저장하면 됩니다.
@@ -154,6 +166,7 @@ SELECT Employees.FirstName, Employees.LastName, Departments.Salary
 
 <details>
 <summary>(604p) 데이터 관리에 있어 때로는 정규화가 필요하지 않을 때도 있습니다. 정규화가 필요하지 않은 상황은 어떤 상황일까요?</summary>
+	
 - 정규화가 항상 최선은 아닙니다. 정규화는 데이터 일관성과 무결성을 높이지만, 테이블을 많이 쪼개다 보면 빈번해진 조인 연산으로 인해 검색의 성능이 저하될 수 있기 때문입니다.
 - 따라서 검색의 성능이 중요한 경우에는 데이터 중복과 연산의 번거로움을 감수하더라도 하나의 테이블로 관리하는 역정규화를 고려할 수 있습니다.
 - 예를 들어 NoSQL 데이터베이스에서는 성능최적화를 위해 기본적으로 데이터를 정규화하지 않습니다.
