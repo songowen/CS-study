@@ -120,6 +120,16 @@ SELECT Employees.FirstName, Employees.LastName, Departments.Salary
 </details>
 
 <details>
+<summary>(579p) Employees테이블에서 급여가 평균보다 적은 사원의 이름을 조회하는 SQL 문을 작성해 보세요.(오준)</summary>
+	
+```SQL
+SELECT FirstName, LastName
+FROM Employess
+WHERE Salary < (SELECT avg(Salary) FROM Employess;
+```
+</details>
+
+<details>
 <summary>(577p) INNER 조인과 OUTER 조인의 차이점을 설명해 보세요.</summary>
 	
 - INNER 조인은 조인 조건을 만족하는 행들만 결과에 포함되며, 공통된 데이터가 있는 경우에만 데이터를 추출합니다.
