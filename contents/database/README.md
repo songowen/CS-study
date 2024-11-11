@@ -48,6 +48,16 @@
 </details>
 
 <details>
+<summary>(553p) SQL의 DML에 해당하는 명령어 4개를 모두 말하고 각각 어떤 상황에서 쓰이는지 말하세요.(오준)</summary>
+	
+- DML은 데이터 조작 언어로, SELECT, UPDATE, DELETE, INSERT가 있습니다.
+- SELECT는 테이블의 레코드를 조회하는 명령어입니다. SELECT [찾을 컬럼] FROM [테이블]
+- UPDATE는 테이블의 레코드를 수정하는 명령어입니다. UPDATE [테이블] SET [필드] = [값]
+- DELETE는 테이블의 레코드를 삭제하는 명령어입니다. DELETE [테이블]
+- INSERT는 테이블에 레코드를 삽입하는 명령어입니다. INSERT INTO [테이블](필드) VALUES (값)
+</details>
+
+<details>
 <summary>다음 질문 5개는 다음 테이블을 토대로 답변하는 질문입니다.</summary>
 	
 - 다음은 어떤 기업의 사업부서 및 직원에 대한 정보를 나타내는 테이블입니다.
