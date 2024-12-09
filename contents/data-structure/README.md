@@ -197,6 +197,7 @@ inorder_traversal (root)
 ```
 </details>
 
+![문제이미지](img/Q15.PNG)
 <details>
 <summary>300p. 다음 그림의 자료구조가 무엇인지 설명하고, 간단한 코드로 구현해 보세요.(p.300)</summary>
 <p>
